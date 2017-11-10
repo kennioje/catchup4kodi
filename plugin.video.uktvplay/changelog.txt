@@ -1,3 +1,6 @@
+v1.1.6
+Added fix for wrong video i.d. playing
+
 v1.1.5
 Added Play All
 
