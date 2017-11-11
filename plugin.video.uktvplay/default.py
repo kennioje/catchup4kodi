@@ -101,11 +101,12 @@ def GetEpisodes(url):
     data=link['videos']
 
     for field in data:
-        name= 'S'+field['series_txt']+'E'+field['episode_txt']+' - '+field['brand_name'].encode("utf-8")
-        iconimage= field['episode_img_cached'].encode("utf-8")
+        name= 'S'+field['series_txt']+'E'+field['episode_txt']+' - '+field['brand_name']+' - '+field['title'].encode("utf-8")
+        iconimage=field['episode_img_cached'].encode("utf-8")
         channel=field['channel'].encode("utf-8")
         desc=field['teaser_text'].encode("utf-8")
-        brightcove=field['brightcove_video_id']            
+        brightcove=field['watch_online_link'][-13:]
+        #brightcove=field['brightcove_video_id']            
         addDir(name,str(brightcove),200,iconimage,desc)
         xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_VIDEO_TITLE)            
     setView('movies', 'default') 
